@@ -1,4 +1,6 @@
+from django.conf import settings
 from django.conf.urls import patterns, include, url
+from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 
 from views import *
 
@@ -13,3 +15,6 @@ urlpatterns = patterns('',
     url(r'^admin/', include(admin.site.urls)),
     url(r'^$', HomePageView.as_view()),
 )
+
+if (settings.DEBUG):
+    urlpatterns += staticfiles_urlpatterns()

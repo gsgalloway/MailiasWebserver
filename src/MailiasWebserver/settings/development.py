@@ -6,6 +6,15 @@ Created on May 30, 2015
 
 from .base import *
 
-#SECRET_KEY = 'vafpn#ik1uokg%66powie-51&um#i!q6*32z=v#3(*6(%6t-h$'
+import os
 
 DEBUG = True
+
+STATIC_URL = '/static/'
+STATICFILES_DIRS = (
+    os.path.join(BASE_DIR, "static"),
+)
+STATICFILES_FINDERS = (
+    'django.contrib.staticfiles.finders.FileSystemFinder',
+    'django.contrib.staticfiles.finders.AppDirectoriesFinder',
+)
